@@ -1,1 +1,5 @@
 rootProject.name = 'TeleComDemo'
+include 'LoadBalancerService'
+include 'ProcessorService'
+include 'SubscriberService'
+
