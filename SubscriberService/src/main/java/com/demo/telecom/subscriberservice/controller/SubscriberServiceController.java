@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.logging.Logger;
 
 @RestController
+@RequestMapping("/subs")
 public class SubscriberServiceController {
 
     static private final Logger logger =  Logger.getLogger(SubscriberServiceController.class.getName());
@@ -18,7 +19,7 @@ public class SubscriberServiceController {
     @Autowired
     private SubsciberService subsciberService;
 
-    @GetMapping(value = "/subs", produces = "application/json")
+    @GetMapping(produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public SubscriberResponse getSubscriber(@RequestParam("id") String id) {
         SubscriberResponse subscriberResponse = this.subsciberService.getSubscriber(id);
@@ -26,7 +27,7 @@ public class SubscriberServiceController {
         return subscriberResponse;
     }
 
-    @PostMapping("/subs")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     void createSubscriber(@RequestBody SubscriberRequest subscriberRequest) {
         try {
@@ -37,7 +38,7 @@ public class SubscriberServiceController {
     }
 
 
-    @PutMapping("/subs")
+    @PutMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.ACCEPTED)
     SubscriberResponse updateSubscriber(@RequestBody SubscriberRequest subscriberRequest) {
         try {

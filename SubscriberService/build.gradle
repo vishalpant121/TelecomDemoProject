@@ -16,6 +16,14 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'mysql:mysql-connector-java:8.0.30'
 
+
+    //test dependencies
+    testImplementation "org.testcontainers:testcontainers:1.17.3"
+    implementation platform('org.testcontainers:testcontainers-bom:1.17.3') //import bom
+    testImplementation('org.testcontainers:mysql') //no version specified
+    testImplementation "org.testcontainers:junit-jupiter:1.17.3"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
