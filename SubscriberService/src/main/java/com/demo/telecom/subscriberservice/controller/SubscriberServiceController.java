@@ -4,9 +4,14 @@ import com.demo.telecom.subscriberservice.dto.SubscriberRequest;
 import com.demo.telecom.subscriberservice.dto.SubscriberResponse;
 import com.demo.telecom.subscriberservice.service.SubsciberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
 
 import java.util.logging.Logger;
 
@@ -38,6 +43,8 @@ public class SubscriberServiceController {
     }
 
 
+
+
     @PutMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.ACCEPTED)
     SubscriberResponse updateSubscriber(@RequestBody SubscriberRequest subscriberRequest) {
@@ -60,5 +67,4 @@ public class SubscriberServiceController {
             logger.severe("Exception Occurred during deletion of Subscriber: " + exception);
         }
     }
-
 }
