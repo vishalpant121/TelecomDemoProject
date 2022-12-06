@@ -19,7 +19,8 @@ import java.util.logging.Logger;
 @RequestMapping("/subs")
 public class SubscriberServiceController {
 
-    static private final Logger logger =  Logger.getLogger(SubscriberServiceController.class.getName());
+    static private final Logger logger =  Logger.
+            getLogger(SubscriberServiceController.class.getName());
 
     @Autowired
     private SubsciberService subsciberService;
