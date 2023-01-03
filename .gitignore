@@ -35,3 +35,10 @@ out/
 
 ### VS Code ###
 .vscode/
+
+
+### Gradlew ###
+hs_err_pid16936.log
+hs_err_pid5188.log
+replay_pid16936.log
+replay_pid5188.log
