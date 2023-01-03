@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  mysqldb:
+    image: mysql
+    env_file:
+      - ./env/mysql.env
+    volumes:
+      - subscriberVol:/var/lib/mysql
+  subscriber-service:
+    build:
+      context: .
+      args:
+        JARFILE : 'build/libs/SubscriberService-0.0.1-SNAPSHOT.jar'
+    container_name: 'mySubscriberService'
+    ports:
+      - '8080:8080'
+    depends_on:
+      - mysqldb
+volumes:
+  subscriberVol:

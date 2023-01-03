@@ -1,0 +1,9 @@
+docker network create telecom-network
+
+docker run -d --name mysqldb -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 --rm --network telecom-network -e MYSQL_DATABASE=subscriber_service -v subscriberVol:/var/lib/mysql mysql
+
+
+docker build --build-arg JARFILE='build/libs/SubscriberService-0.0.1-SNAPSHOT.jar' -t telecomdemo/subscriberservice .
+
+
+docker run --name mySubscriberService --network telecom-network -p 8080:8080 --rm telecomdemo/subscriberservice
